@@ -1,4 +1,5 @@
 # equation solver
+# Status = In Progress..
 This problem is asked by Google.<br><br>
 You are given a series of arithmetic equations as a string, such as;<br>
 
