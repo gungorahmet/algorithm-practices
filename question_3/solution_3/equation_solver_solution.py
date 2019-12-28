@@ -70,3 +70,32 @@ if __name__ == "__main__":
     equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
     instance = Equation(equation_input)
     instance.main_handler_of_equations()
+
+'''
+    Ginger Equation Algorithm Scratch;
+
+Order equations from with less unknown to most unknown values.
+Iterate all equations and solve. 
+Then update all equations and calculate new sum.
+iterate cumulatively again FROM THE BEGINNING of equations till you complete all.
+If resolve return dict, else return null.
+
+As psedo code below;
+
+Do below steps till you resolve all of equations.
+----------------------------------------------
+
+order_equations()
+
+for equation in all-equations:
+    def solve() # Solve iteration with 1 unknown value.
+        if solved:
+            def update_equations_with_found_value()
+            def calculate_new_sum_of_equations()
+            go to order_equations() to re-check from the beginning.
+            
+
+------------------
+If cannot resolve;
+Not enough input. return null
+'''
