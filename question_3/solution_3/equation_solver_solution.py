@@ -78,7 +78,7 @@ class Equation():
 
     def solve_equation(self):
         print("-"*50)
-        print(f"Current Equation      => {self.list_equation[self.min_key]}")
+        print(f"Current Equation       => {self.list_equation[self.min_key]}")
         equation_divide = self.list_equation[self.min_key].replace(" ", "").split("=")
 
         left_equation = self.calculate_side(equation_divide[0])
