@@ -3,7 +3,7 @@
 Applied PEP8 (pycodestyle)
 
 Author:       Ahmet Gungor
-Date  :       29.12.2019
+Date  :       30.12.2019
 Description : Solve given equations and return unknown values.
 
 Such as;
@@ -14,7 +14,7 @@ y = x + 1
 
 return dict as {'x': 2, 'y' : 3, 'z' : 5}
 
-Status = In Progress..
+Status = Completed
 '''
 
 import sys
@@ -38,7 +38,7 @@ class Equation():
             self.find_less_unknown_equation()
             self.solve_equation()
             self.update_equations()
-        
+
     def find_unknown_values(self):
         for idx, val in enumerate(self.list_equation):
             val = val.replace(" ", "").replace("+", "-").replace("=", "-")
@@ -105,14 +105,13 @@ class Equation():
         for idx, val in enumerate(self.list_equation):
             val = val.replace(self.latest_unknown_value, str(self.unknown_values[self.latest_unknown_value]))
             self.list_equation[idx] = val
-            tmp_equation = self.list_equation[idx].replace(" ","").replace("=","").replace("+", "")
-            # if self.is_number(tmp_equation) is True:
-            #     del self.list_equation[idx]
+            tmp_equation = self.list_equation[idx].replace(" ", "").replace("=", "").replace("+", "")
 
         for idx, val in enumerate(self.equation_unknown_map):
             if self.latest_unknown_value in self.equation_unknown_map[idx]:
                 self.equation_unknown_map[idx].remove(self.latest_unknown_value)
         
+        # TODO - Remove solved equation to increase efficiency
         print(f"Unknown Values Map     => {self.equation_unknown_map}")
         print(f"Remained Equations     => {self.list_equation}")
 
@@ -121,10 +120,10 @@ class Equation():
 
     def calculate_side(self, value):
         unknown = None
-        
+
         if self.is_number(value) is True:
             return {'values': [int(value), unknown]}
-            
+
         total = 0
         for i in value:
             if self.is_number(i) is True:
@@ -148,33 +147,3 @@ if __name__ == "__main__":
     # equation_input = "x + y = 5\nz = 3\nx + z = 10\nw = 5"
     instance = Equation(equation_input)
     instance.main_handler_of_equations()
-
-
-'''
-    Ginger Equation Algorithm Scratch;
-
-Order equations from with less unknown to most unknown values.
-Iterate all equations and solve.
-Then update all equations and calculate new sum.
-iterate cumulatively again FROM THE BEGINNING of equations till you complete all.
-If resolve return dict, else return null.
-
-As psedo code below;
-
-Do below steps till you resolve all of equations.
-----------------------------------------------
-
-find_less_unknown_equation()
-
-for equation in all-equations:
-    def solve() # Solve iteration with 1 unknown value.
-        if solved:
-            def update_equations_with_found_value()
-            def calculate_new_sum_of_equations()
-            go to find_less_unknown_equation() to re-check from the beginning.
-
-
-------------------
-If cannot resolve;
-Not enough input. return null
-'''
