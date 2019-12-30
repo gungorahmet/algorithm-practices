@@ -138,6 +138,7 @@ class Equation():
 
 if __name__ == "__main__":
     equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
+    # equation_input = "x = y + 4 + 5 + 120\nz = w + 5\nt + w = 8\nw = 5\ny = w + 1\nx + k = 45"
     # equation_input = "y = x + 1\n500 = x + 3\n10 = z + y + 2"
     # equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
     # equation_input = "x + y = 5\nz = 3\nx + z = 10\nw = 5"
