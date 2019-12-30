@@ -23,7 +23,7 @@ import sys
 class Equation():
     def __init__(self, equation_input):
         self.equation_input = equation_input
-        print(f"\n{self.equation_input}\n")
+        print(f"\n{self.equation_input}")
 
         self.list_equation = self.equation_input.split("\n")
         self.count_equation = len(self.list_equation)
@@ -34,9 +34,11 @@ class Equation():
     def main_handler_of_equations(self):
         self.find_unknown_values()
 
-        self.find_less_unknown_equation()
-        self.solve_equation()
-
+        while 1:
+            self.find_less_unknown_equation()
+            self.solve_equation()
+            self.update_equations()
+        
     def find_unknown_values(self):
         for idx, val in enumerate(self.list_equation):
             val = val.replace(" ", "").replace("+", "-").replace("=", "-")
@@ -67,15 +69,17 @@ class Equation():
                 self.min_key = key
                 self.min_val = value
                 break
-
-        print(self.min_key, self.min_val)
-        # if self.min_key == -1:
-        #     print("Program is completed")
-        #     print("TODO write result")
-        #     sys.exit(0)
+        if self.min_key == -1:
+            for key, value in self.unknown_values.items():
+                if value is None:
+                    print("\n\nThere is no solution with given inputs.'\n")
+                    sys.exit(1)
+            print(f"\n\nEquation Solution Set => {self.unknown_values}")
+            sys.exit(0)
 
     def solve_equation(self):
-        print(self.list_equation[self.min_key])
+        print("-"*50)
+        print(f"Current Equation      => {self.list_equation[self.min_key]}")
         equation_divide = self.list_equation[self.min_key].replace(" ", "").split("=")
 
         left_equation = self.calculate_side(equation_divide[0])
@@ -86,30 +90,48 @@ class Equation():
         if left_equation['values'][1] is not None:
             unknown_result = right_equation['values'][0] - left_equation['values'][0]
             self.unknown_values[left_equation['values'][1]] = unknown_result
+            self.latest_unknown_value = left_equation['values'][1]
         elif right_equation['values'][1] is not None:
             unknown_result = left_equation['values'][0] - right_equation['values'][0]
             self.unknown_values[right_equation['values'][1]] = unknown_result
+            self.latest_unknown_value = right_equation['values'][1]
         else:
-            print("???")
-            sys.exit(0)
+            print("Unexpected case has occured!")
+            sys.exit(1)
 
-        print(self.unknown_values)
+        print(f"Unknown Values Results => {self.unknown_values}")
 
     def update_equations(self):
-        pass
+        for idx, val in enumerate(self.list_equation):
+            val = val.replace(self.latest_unknown_value, str(self.unknown_values[self.latest_unknown_value]))
+            self.list_equation[idx] = val
+            tmp_equation = self.list_equation[idx].replace(" ","").replace("=","").replace("+", "")
+            # if self.is_number(tmp_equation) is True:
+            #     del self.list_equation[idx]
+
+        for idx, val in enumerate(self.equation_unknown_map):
+            if self.latest_unknown_value in self.equation_unknown_map[idx]:
+                self.equation_unknown_map[idx].remove(self.latest_unknown_value)
+        
+        print(f"Unknown Values Map     => {self.equation_unknown_map}")
+        print(f"Remained Equations     => {self.list_equation}")
 
     def calculate_equations(self):
         pass
 
     def calculate_side(self, value):
-        total = 0
         unknown = None
+        
+        if self.is_number(value) is True:
+            return {'values': [int(value), unknown]}
+            
+        total = 0
         for i in value:
             if self.is_number(i) is True:
                 total = total + int(i)
             elif self.is_number(i) is False and not i == "+":
                 unknown = i
-                print(f"{i} is unknown")
+                print(f"Unknown Value to Find  => {i}")
         return {'values': [total, unknown]}
 
     def is_number(self, input_str):
@@ -121,8 +143,9 @@ class Equation():
 
 
 if __name__ == "__main__":
-    # equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
-    equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
+    equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
+    # equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
+    # equation_input = "x + y = 5\nz = 3\nx + z = 10\nw = 5"
     instance = Equation(equation_input)
     instance.main_handler_of_equations()
 
