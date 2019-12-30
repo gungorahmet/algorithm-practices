@@ -71,7 +71,7 @@ class Equation():
         if self.min_key == -1:
             for key, value in self.unknown_values.items():
                 if value is None:
-                    print("\n\nThere is no solution with given inputs.'\n")
+                    print("\n\nThere is no solution with given inputs.\n")
                     sys.exit(1)
             print(f"\n\nEquation Solution Set => {self.unknown_values}")
             sys.exit(0)
@@ -137,7 +137,7 @@ class Equation():
 
 
 if __name__ == "__main__":
-    equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
+    equation_input = "x + 1 = y\nz = y + 4\ny = z + 2"
     # equation_input = "x = y + 4 + 5 + 120\nz = w + 5\nt + w = 8\nw = 5\ny = w + 1\nx + k = 45"
     # equation_input = "y = x + 1\n500 = x + 3\n10 = z + y + 2"
     # equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
