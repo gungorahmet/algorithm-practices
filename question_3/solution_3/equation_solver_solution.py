@@ -84,8 +84,6 @@ class Equation():
 
         left_equation = self.calculate_side(equation_divide[0])
         right_equation = self.calculate_side(equation_divide[1])
-        print(left_equation)
-        print(right_equation)
 
         if left_equation['values'][1] is not None:
             unknown_result = right_equation['values'][0] - left_equation['values'][0]
@@ -110,7 +108,7 @@ class Equation():
         for idx, val in enumerate(self.equation_unknown_map):
             if self.latest_unknown_value in self.equation_unknown_map[idx]:
                 self.equation_unknown_map[idx].remove(self.latest_unknown_value)
-        
+
         # TODO - Remove solved equation to increase efficiency
         print(f"Unknown Values Map     => {self.equation_unknown_map}")
         print(f"Remained Equations     => {self.list_equation}")
@@ -122,13 +120,14 @@ class Equation():
         unknown = None
 
         if self.is_number(value) is True:
-            return {'values': [int(value), unknown]}
+            return {'values': [float(value), unknown]}
 
         total = 0
-        for i in value:
+        values = value.split("+")
+        for i in values:
             if self.is_number(i) is True:
-                total = total + int(i)
-            elif self.is_number(i) is False and not i == "+":
+                total = total + float(i)
+            elif self.is_number(i) is False:
                 unknown = i
                 print(f"Unknown Value to Find  => {i}")
         return {'values': [total, unknown]}
@@ -143,6 +142,7 @@ class Equation():
 
 if __name__ == "__main__":
     equation_input = "y = x + 1\n5 = x + 3\n10 = z + y + 2"
+    # equation_input = "y = x + 1\n500 = x + 3\n10 = z + y + 2"
     # equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
     # equation_input = "x + y = 5\nz = 3\nx + z = 10\nw = 5"
     instance = Equation(equation_input)
