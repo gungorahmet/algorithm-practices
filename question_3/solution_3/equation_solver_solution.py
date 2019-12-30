@@ -26,7 +26,6 @@ class Equation():
         print(f"\n{self.equation_input}")
 
         self.list_equation = self.equation_input.split("\n")
-        self.count_equation = len(self.list_equation)
         self.unknown_values = dict()  # To hold answers
         self.unknown_value_count = dict()
         self.equation_unknown_map = dict()
