@@ -112,9 +112,6 @@ class Equation():
         print(f"Unknown Values Map     => {self.equation_unknown_map}")
         print(f"Remained Equations     => {self.list_equation}")
 
-    def calculate_equations(self):
-        pass
-
     def calculate_side(self, value):
         unknown = None
 
