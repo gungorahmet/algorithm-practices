@@ -1,4 +1,4 @@
-# equation solver
+# Division without divide
 # Status = Completed
 This problem was asked by Nextdoor.<br><br>
 
