@@ -34,7 +34,9 @@ class Equation():
         self.find_unknown_values()
 
         while 1:
-            self.find_less_unknown_equation()
+            solution = self.find_less_unknown_equation()
+            if not solution == 1:
+                return solution
             self.solve_equation()
             self.update_equations()
 
@@ -73,8 +75,8 @@ class Equation():
                 if value is None:
                     print("\n\nThere is no solution with given inputs.\n")
                     sys.exit(1)
-            print(f"\n\nEquation Solution Set => {self.unknown_values}")
-            sys.exit(0)
+            return self.unknown_values
+        return 1
 
     def solve_equation(self):
         print("-"*50)
@@ -142,4 +144,5 @@ if __name__ == "__main__":
     # equation_input = "10 = z + y + 2\ny = x + 1\n5 = x + 3"
     # equation_input = "x + y = 5\nz = 3\nx + z = 10\nw = 5"
     instance = Equation(equation_input)
-    instance.main_handler_of_equations()
+    result = instance.main_handler_of_equations()
+    print(f"\n\nEquation Solution Set => {result}")
