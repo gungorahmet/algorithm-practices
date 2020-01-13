@@ -8,8 +8,6 @@ Description : Easier version of 1K missing values question.
               This script is searching 5 missing values from 20 values in 15 list size.
 '''
 
-import sys
-
 
 class MissingNumbers():
     def __init__(self):

@@ -10,8 +10,6 @@ Description : This problem was asked by Two Sigma;
               What is the computational and space complexity of your solution?
 '''
 
-import sys
-
 
 class MissingNumbers():
     def __init__(self):
