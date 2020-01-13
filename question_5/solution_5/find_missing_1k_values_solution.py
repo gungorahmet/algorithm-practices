@@ -16,7 +16,7 @@ import sys
 class MissingNumbers():
     def __init__(self):
         '''
-        Assigment values for testing;
+        Assignment some values with loop for testing;
         It is assignd from 400 to 999399 values in total 99000 unique values.
         So from 1 to 399 and 999400 to 1,000,000 values are missing to test.
         '''
