@@ -17,13 +17,13 @@ class MissingNumbers():
     def __init__(self):
         '''
         Assigment values for testing;
-        It is assignd from 400 to 990399 values in total 99000 unique values.
-        So from 1 to 399 and 990400 to 1,000,000 values are missing to test.
+        It is assignd from 400 to 999399 values in total 99000 unique values.
+        So from 1 to 399 and 999400 to 1,000,000 values are missing to test.
         '''
         print(f"\n\n")
-        main_list = [None] * 999000
-        for i in range(400, 990400):
-            main_list[i-1] = i
+        self.main_list = [None] * 999000
+        for i in range(400, 999400):
+            self.main_list[i - 400] = i
 
     def find_missing_values(self):
         pass
