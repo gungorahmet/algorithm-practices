@@ -5,7 +5,7 @@ Applied PEP8 (pycodestyle)
 Author:       Ahmet Gungor
 Date  :       13.01.2020
 Description : This problem was asked by Two Sigma;
-              You are given an unsorted list of 999,000 unique integers, each from 1 and 1,000,000.
+              You are given an unsorted list of 999,000 unique integers each from 1 and 1,000,000.
               Find the missing 1000 numbers.
               What is the computational and space complexity of your solution?
 '''
@@ -22,7 +22,7 @@ class MissingNumbers():
         '''
         print(f"\n\n")
         main_list = [None] * 999000
-        for i in range(400,990400):
+        for i in range(400, 990400):
             main_list[i-1] = i
 
     def find_missing_values(self):
@@ -31,4 +31,4 @@ class MissingNumbers():
 
 if __name__ == "__main__":
     instance = MissingNumbers()
-    instance = instance.main()
+    instance = instance.find_missing_values()
