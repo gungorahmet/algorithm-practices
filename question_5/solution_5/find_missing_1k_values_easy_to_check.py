@@ -22,7 +22,7 @@ class MissingNumbers():
                 self.my_dict[value] = True
 
         for element in range(1, 21):
-            if element not in self.my_dict:
+            if not self.my_dict.get(element):
                 self.solution_list.append(element)
 
         print(self.solution_list)
