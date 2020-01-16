@@ -27,7 +27,7 @@ class MissingNumbers():
         self.my_dict = dict()
         self.solution_list = []
         for value in self.main_list:
-            if value not in self.my_dict:
+            if not self.my_dict.get(value):
                 self.my_dict[value] = True
 
         for element in range(1, 1000001):
