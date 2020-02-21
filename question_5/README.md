@@ -1,4 +1,4 @@
-# Find 1000 unique in 990,000 size list from first 1M numbers.
+# Find 1000 unique in 999,000 size list from first 1M numbers.
 # Status = Completed.
 This problem was asked by Two Sigma<br><br>
 
