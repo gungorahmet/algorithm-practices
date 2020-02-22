@@ -6,7 +6,7 @@ Author:       Ahmet Gungor
 Date  :       23.02.2020
 Description : This problem was asked by Ahmet Gungor;
               n is a parameter with 1 < n < 10 condition;
-              Below figure should be print as output according to n value.
+              Below figure should be printed as output according to n value.
 
               e.g. n = 4 needs to be as;
 
