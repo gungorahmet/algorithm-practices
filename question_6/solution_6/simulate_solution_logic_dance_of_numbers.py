@@ -52,6 +52,9 @@ class DanceOfNumbers():
         self.simulate_code()
 
     def simulate_code(self):
+        '''
+        Simulation with sleep to see steps of handler
+        '''
         if name == "nt":
             system("cls")
         else:  # posix for Linux and MacOS
