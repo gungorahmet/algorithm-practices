@@ -1,6 +1,6 @@
 # Dance of numbers
 
-# Status = Waiting to Resolve
+# Status = Completed
 <br>
 This problem was asked by Ahmet Gungor<br><br>
 
