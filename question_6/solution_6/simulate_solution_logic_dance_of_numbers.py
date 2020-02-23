@@ -44,8 +44,6 @@ class DanceOfNumbers():
         for i in range(0, iter_row_column_length):
             self.base_list[self.center - level][self.center - level + i] = level + 1
             self.base_list[self.center + level][self.center - level + i] = level + 1
-
-        for i in range(1, iter_row_column_length - 1):  # no need 2 times so from 1 and to -1
             self.base_list[self.center - level + i][self.center - level] = level + 1
             self.base_list[self.center - level + i][self.center + level] = level + 1
 
@@ -55,7 +53,7 @@ class DanceOfNumbers():
         '''
         Simulation with sleep to see steps of handler
         '''
-        if name == "nt":
+        if name == "nt":  # nt for Windows
             system("cls")
         else:  # posix for Linux and MacOS
             system("clear")
