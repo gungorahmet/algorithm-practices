@@ -23,13 +23,8 @@ class Water:
 
         start_to_collect = False
 
-        max_num = 0
-        max_last_index = 0
-
-        for idx, val in enumerate(height, 0):
-            if val >= max_num:
-                max_num = val
-                max_last_index = idx
+        max_num = height[-1]
+        max_last_index = len(height) - 1
 
         i = 0
         while i < max_last_index:
