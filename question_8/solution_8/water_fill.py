@@ -8,7 +8,7 @@ Date  :       28.02.2022
 
 class Water:
     def __init__(self):
-        # self.height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+        self.height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
         # self.height = [4, 2, 0, 3, 2, 5]  #  To Test
         # self.height = [4, 3, 2]  #  To Test
         # self.height = [3, 0, 1, 4, 2, 1, 4, 2, 4, 3, 3]  #  To Test
